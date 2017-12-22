@@ -1,13 +1,13 @@
-var axios = require('axios');
+import axios from "axios";
+import React from "react";
 
-var GitHubUser = {
-    getByUsername: function(username){
+export default class GitHubUser extends React.Component{
+    getByUsername(username){
         return axios.get("https://api.github.com/users/" + username);
-    },
+    }
 
-    getReposByUser: function(username){
+    getReposByUser(username){
         return axios.get("https://api.github.com/users/" + username + "/repos");
     }
-};
 
-module.exports = GitHubUser;
+}

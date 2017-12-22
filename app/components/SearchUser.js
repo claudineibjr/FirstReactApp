@@ -1,12 +1,11 @@
-var React = require('react'); 
-var createReactClass = require('create-react-class'); 
+import React from "react";
+import GitHubUser from "../services/GitHubUser";
 
-var GitHubUser = require('../services/GitHubUser');
+export default class SearchUser extends React.Component{
 
-var SearchUser = createReactClass({ 
-    handleSubmit: function(e){
+    handleSubmit(e){
         e.preventDefault();
-
+        
         GitHubUser.getByUsername(this.refs.username.value).then(function(response){
             console.log(response);
         });
@@ -14,10 +13,10 @@ var SearchUser = createReactClass({
         GitHubUser.getReposByUser(this.refs.username.value).then(function(response){
             console.log(response);
         });
+    }
 
-    },
-    render: function(){
-        return (
+    render(){
+        return(
             <div className="jumbotron">
                 <h1>GitHub Info</h1>
                 <div className="row">
@@ -32,6 +31,4 @@ var SearchUser = createReactClass({
             </div>
         );
     }
-}); 
- 
-module.exports = SearchUser;
+}

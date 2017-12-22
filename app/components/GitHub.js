@@ -1,16 +1,13 @@
-var React = require('react');
-var createReactClass = require('create-react-class');
+import React from "react";
 
-var SearchUser = require('./SearchUser');
+import SearchUser from "./SearchUser";
 
-var GitHub = createReactClass({
-    render: function(){
-        return (
+export default class GitHub extends React.Component{
+    render(){
+        return(
             <div className="container">
                 <SearchUser/>
             </div>
         );
     }
-});
-
-module.exports = GitHub;
+}
